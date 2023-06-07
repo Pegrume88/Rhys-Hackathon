@@ -1,0 +1,1058 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+}
+
+.fa-home {
+  color: #2c4eaa;
+  font-size: 40px;
+  text-shadow: 0 0 7px rgb(0, 89, 255);
+  margin: 10px 40px 10px 20px;
+}
+
+.game-container {
+  width: 100%;
+  display: flex;
+  height: 1000px;
+  background-color: #176900;
+  background: radial-gradient(
+    circle,
+    #29be00,
+    #229c00,
+    #176900,
+    #104b00,
+    #061b00
+  );
+}
+
+.board {
+  width: 75%;
+  height: 100vh;
+  background-image: url("https://imgur.com/KrlYuoJ.png");
+  background-color: grey;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+}
+
+.parent {
+  width: 96%;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(17, 1fr);
+  grid-column-gap: 8px;
+  grid-row-gap: 10px;
+  margin-left: 2%;
+  margin-top: 1%;
+}
+
+.field {
+  width: 42px;
+  height: 42px;
+  background: radial-gradient(
+    circle,
+    #000000,
+    #0e0e0e,
+    #171717,
+    #1f1f1f,
+    #272727
+  );
+  color: white;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+span i {
+  margin-left: 0px;
+}
+
+i {
+  margin-left: 12px;
+}
+
+.red {
+  background: radial-gradient(
+    circle,
+    #ec0808,
+    #d91325,
+    #c22134,
+    #aa2c3e,
+    #903444
+  );
+  rotate: -5deg;
+  box-shadow: rgb(255, 0, 0) 0px 3px 8px;
+}
+
+.green {
+  background: radial-gradient(
+    circle,
+    #0dbb07,
+    #16b029,
+    #21a639,
+    #2b9b44,
+    #34904c
+  );
+  rotate: 5deg;
+  box-shadow: rgb(30, 255, 0) 0px 3px 8px;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.game-items {
+  width: 20%;
+  /* background-color: #808080; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -70px;
+  margin-left: 10px;
+}
+
+/* Dice Styling */
+.dice-wrapper {
+  height: 350px;
+  width: 200px;
+  display: grid;
+  place-items: center;
+  justify-content: center;
+  border: solid 1px black;
+  border-radius: 15px;
+  background: #333333; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #dd1818,
+    #333333
+  ); 
+  background: linear-gradient(
+    to right,
+    #dd1818,
+    #333333
+  ); 
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+@keyframes rolling {
+  50% {
+    transform: rotateX(455deg) rotateY(455deg);
+  }
+}
+
+.rolling-animation {
+  animation: rolling 1s;
+}
+
+/* Dice One */
+.diceOne {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    transform-style: preserve-3d;
+    transition: 1s ease;
+}
+
+.faceOne {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 5px solid #f6f3f0;
+  transform-style: preserve-3d;
+  background: linear-gradient(145deg, #dddbd8, #fff);
+}
+
+.faceOne::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: #f6f3f0;
+  transform: translateZ(-1px);
+}
+
+.faceOne::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #131210;
+}
+
+.frontOne {
+  transform: translateZ(50px);
+}
+
+.backOne {
+  transform: rotateX(180deg) translateZ(50px);
+}
+
+.topOne {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottomOne {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.leftOne {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.rightOne {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.frontOne::after {
+  width: 30px;
+  height: 30px;
+  background: #131210;
+  margin: -15px 0 0 -15px;
+}
+
+.backOne::after {
+  margin: -35px 0 0 -30px;
+  box-shadow: 40px 0, 0 25px, 40px 25px, 0 50px, 40px 50px;
+}
+
+.topOne::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 40px;
+}
+
+.bottomOne::after {
+  margin: -36px 0 0 -36px;
+  box-shadow: 26px 26px, 52px 52px, 52px 0, 0 52px;
+}
+
+.rightOne::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 0, 0 40px, 40px 40px;
+}
+
+.leftOne::after {
+  margin: -35px 0 0 -35px;
+  box-shadow: 25px 25px, 50px 50px;
+}
+
+/* Dice Two */
+.diceTwo {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  transform-style: preserve-3d;
+  transition: 1s ease;
+}
+
+.faceTwo {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border: 4px solid #2e2b26;
+  transform-style: preserve-3d;
+  background: linear-gradient(145deg, #000, #2e2b26);
+}
+
+.faceTwo::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: #2e2b26;
+  transform: translateZ(-1px);
+}
+
+.faceTwo::after {
+  position: absolute;
+  content: "";
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: red;
+}
+
+.frontTwo {
+  transform: translateZ(50px);
+}
+
+.backTwo {
+  transform: rotateX(180deg) translateZ(50px);
+}
+
+.topTwo {
+  transform: rotateX(90deg) translateZ(50px);
+}
+
+.bottomTwo {
+  transform: rotateX(-90deg) translateZ(50px);
+}
+
+.leftTwo {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+.rightTwo {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.frontTwo::after {
+  width: 30px;
+  height: 30px;
+  background: red;
+  margin: -15px 0 0 -15px;
+}
+
+.backTwo::after {
+  margin: -35px 0 0 -30px;
+  box-shadow: 40px 0 red, 0 25px red, 40px 25px red, 0 50px red, 40px 50px red;
+}
+
+.topTwo::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 40px red;
+}
+
+.bottomTwo::after {
+  margin: -36px 0 0 -36px;
+  box-shadow: 26px 26px red, 52px 52px red, 52px 0 red, 0 52px red;
+}
+
+.rightTwo::after {
+  margin: -30px 0 0 -30px;
+  box-shadow: 40px 0 red, 0 40px red, 40px 40px red;
+}
+
+.leftTwo::after {
+  margin: -35px 0 0 -35px;
+  box-shadow: 25px 25px red, 50px 50px red;
+}
+
+/* Roll Dice Button */
+.roll {
+  cursor: pointer;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  border-radius: 12px;
+  transition: 0.4s ease-in-out;
+}
+
+.roll:hover {
+  color: #dddbd8;
+  background-color: #131210;
+}
+
+/* Result DIV */
+.result p {
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 0;
+  color: white;
+}
+
+.result {
+  visibility: hidden;
+}
+
+.dice-btn {
+  width: 150px;
+  margin: 15% 0;
+}
+
+/* Card Styling */
+.card-front {
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+}
+.card-stack {
+  text-align: center;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.liberate-card-stack {
+  top: 30px;
+  position: relative;
+  margin-top: -10px;
+  margin-bottom: 70px;
+  rotate: 5deg;
+  background-image: url("https://imgur.com/4UsQqRa.png");
+  background-color: #000000;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: rgb(30, 255, 0) 0px 3px 8px;
+}
+
+.trap-card-stack {
+  background-image: url("https://imgur.com/0BpXtwq.png");
+  background-color: #000000;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  rotate: -5deg;
+  box-shadow: rgb(255, 0, 0) 0px 3px 8px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 227px;
+  box-shadow: -3px 3px 1px #838383, -5px 5px 1px #646464, -7px 7px 1px #4e4e4e, -9px 9px 1px #3d3d3d, -11px 11px 1px #2c2c2c, -13px 13px 1px #1f1f1f, -15px 15px 1px #111111, -17px 17px 1px #000000;
+  perspective: 1000px;
+}
+
+/* .flip-card .liberate-card-stack {
+  box-shadow: -3px 3px 1px #00da13, -5px 5px 1px #00c411, -7px 7px 1px #00ad0e, -9px 9px 1px #00940c, -11px 11px 1px #00790a, -13px 13px 1px #006308, -15px 15px 1px #004e07, -17px 17px 1px #003805;
+}
+
+.flip-card .trap-card-stack {
+  box-shadow: -3px 3px 1px #da0000, -5px 5px 1px #c40000, -7px 7px 1px #ad0000, -9px 9px 1px #940000, -11px 11px 1px #790000, -13px 13px 1px #630000, -15px 15px 1px #4e0000, -17px 17px 1px #380000;
+} */
+
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+/* .flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+} */
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back,.flip-card-trap-front, .flip-card-trap-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  /* background: radial-gradient(
+    circle,
+    #0dbb07,
+    #16b029,
+    #21a639,
+    #2b9b44,
+    #34904c
+  ); */
+  color: black;
+  box-shadow: rgb(30, 255, 0) 0px 3px 8px;
+  border-radius: 15px;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background: radial-gradient(
+    circle,
+    #0dbb07,
+    #16b029,
+    #21a639,
+    #2b9b44,
+    #34904c
+  );
+  color: black;
+  rotate: -5deg;
+  transform: rotateY(180deg);
+  box-shadow: rgb(30, 255, 0) 0px 3px 8px;
+  border-radius: 15px;
+}
+
+.flip-card-trap-front {
+  /* background: radial-gradient(
+    circle,
+    #ec0808,
+    #d91325,
+    #c22134,
+    #aa2c3e,
+    #903444
+  ); */
+  box-shadow: rgb(255, 0, 0) 0px 3px 8px;
+  color: black;
+  border-radius: 15px;
+}
+
+/* Style the back side */
+.flip-card-trap-back {
+  background: radial-gradient(
+    circle,
+    #ec0808,
+    #d91325,
+    #c22134,
+    #aa2c3e,
+    #903444
+  );
+  rotate: 2deg;
+  box-shadow: rgb(255, 0, 0) 0px 3px 8px;
+  color: black;
+  transform: rotateY(180deg);
+  border-radius: 15px;
+}
+
+.roll {
+  padding-top: 10px;
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% / 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: conic-gradient(
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab,
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab,
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab,
+    #e6e9bf,
+    #d2b5aa,
+    #cbaea3,
+    #d4b5ab
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  background: conic-gradient(
+    #d7d7d7,
+    #c3c3c3,
+    #cccccc,
+    #c6c6c6,
+    #d7d7d7,
+    #c3c3c3,
+    #cccccc,
+    #c6c6c6,
+    #d7d7d7,
+    #c3c3c3,
+    #cccccc,
+    #c6c6c6,
+    #d7d7d7,
+    #c3c3c3,
+    #cccccc,
+    #c6c6c6
+  );
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+button:hover {
+  filter: brightness(110%);
+}
+
+button:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Footer area */
+footer {
+	font-family: "Trade Gothic LT Std", sans-serif;
+	background-color: #333;
+	color: #fff;
+	padding: 0.5em;
+	text-align: center;
+}
+
+footer p {
+	margin: 0.2em 0 1em 0;
+}
+
+footer span {
+  white-space: nowrap;
+}
+ 
+footer a {
+	text-decoration: none;
+	padding: 0.3em;
+	color: #fff;
+}
+  
+footer a:hover {
+	z-index: 1;
+	background-color: #0077b5;  /* The LinkedIn blue */
+	text-decoration: underline;
+}
+
+/* Home Page */
+
+.home {
+  position: relative;
+}
+
+.main-image {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://imgur.com/XENjwp5.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+}
+
+.game-name {
+  width: 150%;
+  height: 100px;
+  background-image: url("https://imgur.com/f8vcMNS.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 0 0 90px 14%;
+}
+
+.btn-wrapper {
+  width: 30%;
+  position: absolute;
+  bottom: 0;
+  margin: 0 0 18% 40%;
+}
+
+.start-btn, .rules-btn {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  color: #000;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 3% 5%;
+  margin-top: -500px;
+}
+
+.start-btn {
+  background: radial-gradient(
+    circle,
+    #0dbb07,
+    #16b029,
+    #21a639,
+    #2b9b44,
+    #34904c
+  );
+  box-shadow: rgb(30, 255, 0) 0px 3px 8px;
+}
+
+.rules-btn {
+  background: radial-gradient(
+    circle,
+    #086bec,
+    #1352d9,
+    #2154c2,
+    #2c4eaa,
+    #345190
+  );
+  box-shadow: rgb(0, 89, 255) 0px 3px 8px;
+  margin-left: 150px;
+}
+
+/* Intro Page */
+#intro-body {
+  background-image: url('https://chasakara.github.io/stg/docs/starsbg.png');
+  text-align: center;
+}
+
+#video-container {
+  width: 75vw;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#intro-video {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.continue-btn {
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  color: #000;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 0 auto;
+  cursor: pointer;
+  background: radial-gradient(
+    circle,
+    #0DBB07,
+    #16B029,
+    #21A639,
+    #2B9B44,
+    #34904C
+  );
+  box-shadow: rgb(30, 255, 0) 0px 3px 8px;
+}
+
+#countdown-timer {
+  margin: auto;
+  color: white;
+  font-size: 30px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.display {
+  visibility: visible;
+}
+
+/* Modal */
+
+.modal {
+  width: 100%; 
+  height: 100vh; 
+  display: none; 
+  position: fixed; 
+  left: 0;
+  top: 0;
+  overflow: auto; 
+  z-index: 1;
+}
+
+.modal-content {
+  width: 50%;
+  max-height: 57vh;
+  position: relative;
+  font-size: 14pt;
+  color: #000;
+  background-color: #fefefe;
+  border: 3px solid #c4c4c4;
+  border-radius: 10px;
+  overflow: auto; 
+  padding: 20px;
+  margin: 9% auto;
+}
+
+.modal-content h2 {
+  text-align: center;
+  font-size: 44px;
+  padding: 10px 0 25px 0;
+}
+
+.modal-content h3 {
+  margin-top: 20px;
+  }
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #2c4eaa;
+  font-size: 32px;
+  font-weight: bold;
+  text-shadow: rgb(0, 89, 255) 0 0 8px;
+  margin: 8px 20px 0 0;
+}
+
+
+.close:hover,
+.close:focus {
+color: #ec0808;
+text-decoration: none;
+text-shadow: rgb(255, 0, 0) 0 0 8px;
+cursor: pointer;
+}
+
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
+	border-radius: 10px;
+	background-color: #444444;
+}
+
+::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #000000;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: #D62929;
+	background-image: -webkit-linear-gradient(90deg,
+											  transparent,
+											  rgba(0, 0, 0, 0.4) 50%,
+											  transparent,
+											  transparent)
+}
+
+/* Planets Page */
+
+.planets-container {
+  position: relative;
+}
+
+.planets-image {
+  width: 100%;
+  height: 100vh;
+  position:absolute;
+  background-image: url("https://imgur.com/3iTa8Pe.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+}
+
+.planets-wrapper {
+  width: 100%;
+}
+
+.endor {
+  width: 430px;
+  height: 413px;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  border-radius: 50%;
+  margin: 0 0 20px 38%;
+}
+
+.tatooine {
+  width: 291px;
+  height: 260px;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  margin: 2.5% 0 22.5% 66%;
+}
+
+.tatooine {
+  position: relative;
+}
+
+.tatooine:before, .dagobah:before  {
+  content: attr(data-hover);
+  width: 180px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+  text-align: center;
+  font-size: 28px;
+  border-radius: 5px;
+  transition: opacity 1s ease-in-out;
+
+  padding: 10px 0;
+  margin: 90% 0 0 18%;
+  z-index: 1;
+}
+
+.dagobah:before {
+  margin: 100% 0 0 -7%;
+}
+
+.tatooine:hover:before, .dagobah:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dagobah {
+  width: 155px;
+  height: 150px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: rgba(0,0,0,0.5);
+  border-radius: 50%;
+  margin: 0 0 0 17%;
+}
+
+.position.active{
+  background: white;
+}
+
+/* Character Page */
+
+.characters-container {
+  position: relative;
+}
+
+.character-img {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://imgur.com/lMj3yI3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  font-family: "Trade Gothic LT Std", sans-serif;
+  font-weight: bolder;
+}
+
+.characters-wrapper-top {
+  width: 60%;
+  height: 15vh;
+  text-align: center;
+  font-size: 40px;
+  background-image: linear-gradient(to bottom right, #a5a5a5, #dadada, #dadada, #ececec, #f7f7f7, #b9b9b9, #919191);
+  padding-top: 1%;
+  margin: 0 auto;
+}
+
+.second-wrapper {
+  width: 75%;
+  height: 10vh;
+  background-image: linear-gradient(to bottom right, #a5a5a5, #dadada, #dadada, #ececec, #f7f7f7, #b9b9b9, #919191);
+  margin: 0 auto;
+}
+
+.character-names {
+  width: 100%;
+  display: inline-flex;
+}
+
+.character-names p {
+  font-size: 30px;
+  padding: 2% 4%;
+}
+
+.first {
+  margin-left: 160px;
+}
+
+.second {
+  margin-left: 80px;
+}
+
+.third {
+  margin-left: 100px;
+}
+
+.forth {
+  margin-left: 50px;
+}
+
+.character-background {
+  width: 60%;
+  height: 55vh;
+  background-image: linear-gradient(to bottom right, #a5a5a5, #dadada, #dadada, #ececec, #f7f7f7, #b9b9b9, #919191);
+  margin: 0 auto;
+}
+
+.character-background img {
+  padding: 1.3%;
+  margin-top: 65px;
+}
+
+.Chewbacca, .C-3PO, .Jar-jar {
+  width: 250px;
+  height: 450px;
+}
+
+.R2-D2 {
+  width: 250px;
+  height: 350px;
+}
+
+.characters-wrapper-bottom {
+  width: 65%;
+  height: 8vh;
+  background-image: linear-gradient(to bottom right, #a5a5a5, #dadada, #dadada, #ececec, #f7f7f7, #b9b9b9, #919191);
+  margin: 0 auto;
+}
+
+#choose-level {
+  margin-left: 42vw;
+  height: 25px;
+  padding: 15px;
+}
